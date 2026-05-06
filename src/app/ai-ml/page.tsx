@@ -43,7 +43,7 @@ export default function AIML() {
         <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
           
           {/* Project 1 */}
-          <motion.div variants={itemVariants} className="glass-card" style={{ position: "relative", overflow: "hidden", borderLeft: "4px solid var(--accent)" }}>
+          <motion.div variants={itemVariants} whileHover={{ scale: 1.02 }} className="glass-card" style={{ position: "relative", overflow: "hidden", borderLeft: "4px solid var(--accent)" }}>
             <div style={{ position: "absolute", top: "-50px", right: "-50px", opacity: 0.05 }}>
               <Network size={300} />
             </div>
@@ -87,7 +87,7 @@ export default function AIML() {
             
             <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", position: "relative", zIndex: 1 }}>
               {["Python", "Optimization", "Simulation", "Mathematical Modelling", "UAV Systems", "Data Analysis"].map(skill => (
-                <span key={skill} style={{ fontSize: "0.85rem", color: "var(--accent)", background: "rgba(16, 185, 129, 0.1)", padding: "6px 12px", borderRadius: "6px", border: "1px solid rgba(16, 185, 129, 0.2)" }}>
+                <span key={skill} className="skill-tag" style={{ fontSize: "0.85rem", color: "var(--accent)", background: "rgba(16, 185, 129, 0.1)", padding: "6px 12px", borderRadius: "6px", border: "1px solid rgba(16, 185, 129, 0.2)" }}>
                   {skill}
                 </span>
               ))}
@@ -95,7 +95,7 @@ export default function AIML() {
           </motion.div>
 
           {/* Project 2 */}
-          <motion.div variants={itemVariants} className="glass-card" style={{ position: "relative", overflow: "hidden", borderLeft: "4px solid var(--primary)" }}>
+          <motion.div variants={itemVariants} whileHover={{ scale: 1.02 }} className="glass-card" style={{ position: "relative", overflow: "hidden", borderLeft: "4px solid var(--primary)" }}>
             <div style={{ position: "absolute", top: "-50px", right: "-50px", opacity: 0.05 }}>
               <BrainCircuit size={300} />
             </div>
@@ -139,7 +139,7 @@ export default function AIML() {
             
             <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", position: "relative", zIndex: 1 }}>
               {["Python", "PySide6", "Qt", "YOLO", "SAM", "Signal Processing", "Sensor Integration"].map(skill => (
-                <span key={skill} style={{ fontSize: "0.85rem", color: "var(--primary)", background: "rgba(59, 130, 246, 0.1)", padding: "6px 12px", borderRadius: "6px", border: "1px solid rgba(59, 130, 246, 0.2)" }}>
+                <span key={skill} className="skill-tag" style={{ fontSize: "0.85rem", color: "var(--primary)", background: "rgba(59, 130, 246, 0.1)", padding: "6px 12px", borderRadius: "6px", border: "1px solid rgba(59, 130, 246, 0.2)" }}>
                   {skill}
                 </span>
               ))}

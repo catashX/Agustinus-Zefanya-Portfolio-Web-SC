@@ -65,7 +65,7 @@ export default function Software() {
           </p>
         </motion.div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "32px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "32px" }}>
           {projects.map((project, index) => (
             <motion.div 
               key={index} 
@@ -90,7 +90,7 @@ export default function Software() {
               
               <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
                 {project.skills.map(skill => (
-                  <span key={skill} style={{ fontSize: "0.8rem", color: "var(--foreground)", background: "rgba(255,255,255,0.05)", padding: "4px 10px", borderRadius: "6px", border: "1px solid rgba(255,255,255,0.1)" }}>
+                  <span key={skill} className="skill-tag" style={{ fontSize: "0.8rem", color: "var(--foreground)", background: "rgba(255,255,255,0.05)", padding: "4px 10px", borderRadius: "6px", border: "1px solid rgba(255,255,255,0.1)" }}>
                     {skill}
                   </span>
                 ))}

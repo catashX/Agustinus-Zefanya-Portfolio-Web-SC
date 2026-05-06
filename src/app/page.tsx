@@ -53,24 +53,42 @@ export default function Home() {
         </motion.div>
         
         <motion.div variants={itemVariants} style={{ display: "flex", gap: "24px", justifyContent: "center" }}>
-          <a href="https://github.com/catashX" target="_blank" rel="noreferrer" className="text-muted hover:text-white" style={{ transition: "color 0.2s" }}>
+          <motion.a whileHover={{ scale: 1.2, y: -4 }} href="https://github.com/catashX" target="_blank" rel="noreferrer" className="text-muted hover:text-white hover-glow" style={{ transition: "all 0.2s" }}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-          </a>
-          <a href="https://zephx.itch.io" target="_blank" rel="noreferrer" className="text-muted hover:text-white" style={{ transition: "color 0.2s" }}>
+          </motion.a>
+          <motion.a whileHover={{ scale: 1.2, y: -4 }} href="https://zephx.itch.io" target="_blank" rel="noreferrer" className="text-muted hover:text-white hover-glow" style={{ transition: "all 0.2s" }}>
             <Gamepad2 size={24} />
-          </a>
-          <a href="mailto:agustinuszefanya@gmail.com" className="text-muted hover:text-white" style={{ transition: "color 0.2s" }}>
+          </motion.a>
+          <motion.a whileHover={{ scale: 1.2, y: -4 }} href="mailto:agustinuszefanya@gmail.com" className="text-muted hover:text-white hover-glow" style={{ transition: "all 0.2s" }}>
             <Mail size={24} />
-          </a>
-          <a href="tel:+6281318463100" className="text-muted hover:text-white" style={{ transition: "color 0.2s" }}>
+          </motion.a>
+          <motion.a whileHover={{ scale: 1.2, y: -4 }} href="tel:+6281318463100" className="text-muted hover:text-white hover-glow" style={{ transition: "all 0.2s" }}>
             <Phone size={24} />
-          </a>
+          </motion.a>
         </motion.div>
       </motion.div>
 
-      {/* Decorative background blur elements */}
-      <div style={{ position: "absolute", top: "20%", left: "10%", width: "300px", height: "300px", background: "var(--primary-glow)", filter: "blur(100px)", borderRadius: "50%", zIndex: -1 }}></div>
-      <div style={{ position: "absolute", bottom: "20%", right: "10%", width: "250px", height: "250px", background: "rgba(139, 92, 246, 0.3)", filter: "blur(100px)", borderRadius: "50%", zIndex: -1 }}></div>
+      {/* Animated background glow elements */}
+      <motion.div 
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.5, 0.3],
+          x: [0, 30, 0],
+          y: [0, -30, 0],
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        style={{ position: "absolute", top: "15%", left: "5%", width: "40vw", height: "40vw", maxWidth: "400px", maxHeight: "400px", background: "var(--primary-glow)", filter: "blur(120px)", borderRadius: "50%", zIndex: -1 }}
+      />
+      <motion.div 
+        animate={{
+          scale: [1, 1.4, 1],
+          opacity: [0.2, 0.4, 0.2],
+          x: [0, -30, 0],
+          y: [0, 30, 0],
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        style={{ position: "absolute", bottom: "10%", right: "5%", width: "35vw", height: "35vw", maxWidth: "350px", maxHeight: "350px", background: "rgba(139, 92, 246, 0.3)", filter: "blur(120px)", borderRadius: "50%", zIndex: -1 }}
+      />
     </div>
   );
 }

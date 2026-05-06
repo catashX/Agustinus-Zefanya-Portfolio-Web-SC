@@ -30,7 +30,7 @@ export default function Profile() {
           </p>
         </motion.div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "32px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "32px" }}>
           
           {/* Education */}
           <motion.div variants={itemVariants} className="glass-card">
@@ -125,7 +125,7 @@ export default function Profile() {
               
               <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
                 {["Game Development", "Swimming", "Badminton", "Listening to Music"].map((hobby) => (
-                  <span key={hobby} style={{ background: "var(--card-border)", padding: "6px 12px", borderRadius: "20px", fontSize: "0.85rem", color: "var(--foreground)" }}>
+                  <span key={hobby} className="skill-tag" style={{ background: "var(--card-border)", padding: "6px 12px", borderRadius: "20px", fontSize: "0.85rem", color: "var(--foreground)" }}>
                     {hobby}
                   </span>
                 ))}
