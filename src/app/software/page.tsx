@@ -1,9 +1,16 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Smartphone, Server, Layers, LayoutTemplate } from "lucide-react";
+import DataGridBackground from "@/components/backgrounds/DataGridBackground";
+import SkillTag from "@/components/SkillTag";
+import SkillModal from "@/components/SkillModal";
+import { type SkillInfo } from "@/data/skills";
 
 export default function Software() {
+  const [selectedSkill, setSelectedSkill] = useState<SkillInfo | null>(null);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -56,6 +63,8 @@ export default function Software() {
 
   return (
     <div className="section container">
+      <DataGridBackground />
+      <SkillModal skill={selectedSkill} isOpen={!!selectedSkill} onClose={() => setSelectedSkill(null)} />
       <motion.div variants={containerVariants} initial="hidden" animate="visible" style={{ marginTop: "60px" }}>
         
         <motion.div variants={itemVariants} style={{ marginBottom: "60px", textAlign: "center" }}>
@@ -90,9 +99,7 @@ export default function Software() {
               
               <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
                 {project.skills.map(skill => (
-                  <span key={skill} className="skill-tag" style={{ fontSize: "0.8rem", color: "var(--foreground)", background: "rgba(255,255,255,0.05)", padding: "4px 10px", borderRadius: "6px", border: "1px solid rgba(255,255,255,0.1)" }}>
-                    {skill}
-                  </span>
+                  <SkillTag key={skill} name={skill} onSelect={setSelectedSkill} />
                 ))}
               </div>
             </motion.div>

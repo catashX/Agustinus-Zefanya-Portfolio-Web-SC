@@ -1,9 +1,16 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { BrainCircuit, ScanSearch, Cpu, Network } from "lucide-react";
+import { BrainCircuit, ScanSearch, Cpu, Network, ExternalLink } from "lucide-react";
+import NeuralNetworkBackground from "@/components/backgrounds/NeuralNetworkBackground";
+import SkillTag from "@/components/SkillTag";
+import SkillModal from "@/components/SkillModal";
+import { type SkillInfo } from "@/data/skills";
 
 export default function AIML() {
+  const [selectedSkill, setSelectedSkill] = useState<SkillInfo | null>(null);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -21,11 +28,8 @@ export default function AIML() {
 
   return (
     <div className="section container">
-      
-      {/* Background futuristic elements */}
-      <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", zIndex: -1, background: "radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.05) 0%, transparent 60%)" }}></div>
-      <div style={{ position: "fixed", top: "20%", left: "-10%", width: "50%", height: "50%", border: "1px solid rgba(16, 185, 129, 0.1)", borderRadius: "50%", zIndex: -1 }}></div>
-      <div style={{ position: "fixed", bottom: "-10%", right: "-10%", width: "60%", height: "60%", border: "1px solid rgba(59, 130, 246, 0.1)", borderRadius: "50%", zIndex: -1 }}></div>
+      <NeuralNetworkBackground />
+      <SkillModal skill={selectedSkill} isOpen={!!selectedSkill} onClose={() => setSelectedSkill(null)} />
 
       <motion.div variants={containerVariants} initial="hidden" animate="visible" style={{ marginTop: "40px" }}>
         
@@ -85,13 +89,45 @@ export default function AIML() {
               </div>
             </div>
             
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", position: "relative", zIndex: 1 }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", position: "relative", zIndex: 1, marginBottom: "24px" }}>
               {["Python", "Optimization", "Simulation", "Mathematical Modelling", "UAV Systems", "Data Analysis"].map(skill => (
-                <span key={skill} className="skill-tag" style={{ fontSize: "0.85rem", color: "var(--accent)", background: "rgba(16, 185, 129, 0.1)", padding: "6px 12px", borderRadius: "6px", border: "1px solid rgba(16, 185, 129, 0.2)" }}>
-                  {skill}
-                </span>
+                <SkillTag
+                  key={skill}
+                  name={skill}
+                  color="var(--accent)"
+                  bgColor="rgba(16, 185, 129, 0.1)"
+                  borderColor="rgba(16, 185, 129, 0.2)"
+                  onSelect={setSelectedSkill}
+                />
               ))}
             </div>
+
+            <motion.a
+              href="https://drive.google.com/file/d/1MnLV2HAe32i-NHJhQX5TXuynBxe12l1B/view?usp=share_link"
+              target="_blank"
+              rel="noreferrer"
+              whileHover={{ scale: 1.03, y: -2 }}
+              whileTap={{ scale: 0.97 }}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "10px",
+                padding: "12px 24px",
+                background: "rgba(16, 185, 129, 0.12)",
+                border: "1px solid rgba(16, 185, 129, 0.3)",
+                borderRadius: "12px",
+                color: "var(--accent)",
+                fontWeight: 600,
+                fontSize: "0.95rem",
+                cursor: "pointer",
+                textDecoration: "none",
+                position: "relative",
+                zIndex: 1,
+              }}
+            >
+              <ExternalLink size={16} />
+              View Thesis Document
+            </motion.a>
           </motion.div>
 
           {/* Project 2 */}
@@ -137,13 +173,45 @@ export default function AIML() {
               </div>
             </div>
             
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", position: "relative", zIndex: 1 }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", position: "relative", zIndex: 1, marginBottom: "24px" }}>
               {["Python", "PySide6", "Qt", "YOLO", "SAM", "Signal Processing", "Sensor Integration"].map(skill => (
-                <span key={skill} className="skill-tag" style={{ fontSize: "0.85rem", color: "var(--primary)", background: "rgba(59, 130, 246, 0.1)", padding: "6px 12px", borderRadius: "6px", border: "1px solid rgba(59, 130, 246, 0.2)" }}>
-                  {skill}
-                </span>
+                <SkillTag
+                  key={skill}
+                  name={skill}
+                  color="var(--primary)"
+                  bgColor="rgba(59, 130, 246, 0.1)"
+                  borderColor="rgba(59, 130, 246, 0.2)"
+                  onSelect={setSelectedSkill}
+                />
               ))}
             </div>
+
+            <motion.a
+              href="https://github.com/IT-Porto-Indonesia-Sejahtera/QC-Detector"
+              target="_blank"
+              rel="noreferrer"
+              whileHover={{ scale: 1.03, y: -2 }}
+              whileTap={{ scale: 0.97 }}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "10px",
+                padding: "12px 24px",
+                background: "rgba(59, 130, 246, 0.12)",
+                border: "1px solid rgba(59, 130, 246, 0.3)",
+                borderRadius: "12px",
+                color: "var(--primary)",
+                fontWeight: 600,
+                fontSize: "0.95rem",
+                cursor: "pointer",
+                textDecoration: "none",
+                position: "relative",
+                zIndex: 1,
+              }}
+            >
+              <ExternalLink size={16} />
+              View Repository
+            </motion.a>
           </motion.div>
 
         </div>

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Mail, Gamepad2, Phone } from "lucide-react";
 import Link from "next/link";
+import FloatingShapesBackground from "@/components/backgrounds/FloatingShapesBackground";
 
 export default function Home() {
   const containerVariants = {
@@ -22,6 +23,7 @@ export default function Home() {
 
   return (
     <div className="section container" style={{ alignItems: "center", textAlign: "center" }}>
+      <FloatingShapesBackground />
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -67,28 +69,6 @@ export default function Home() {
           </motion.a>
         </motion.div>
       </motion.div>
-
-      {/* Animated background glow elements */}
-      <motion.div 
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.5, 0.3],
-          x: [0, 30, 0],
-          y: [0, -30, 0],
-        }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        style={{ position: "absolute", top: "15%", left: "5%", width: "40vw", height: "40vw", maxWidth: "400px", maxHeight: "400px", background: "var(--primary-glow)", filter: "blur(120px)", borderRadius: "50%", zIndex: -1 }}
-      />
-      <motion.div 
-        animate={{
-          scale: [1, 1.4, 1],
-          opacity: [0.2, 0.4, 0.2],
-          x: [0, -30, 0],
-          y: [0, 30, 0],
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        style={{ position: "absolute", bottom: "10%", right: "5%", width: "35vw", height: "35vw", maxWidth: "350px", maxHeight: "350px", background: "rgba(139, 92, 246, 0.3)", filter: "blur(120px)", borderRadius: "50%", zIndex: -1 }}
-      />
     </div>
   );
 }

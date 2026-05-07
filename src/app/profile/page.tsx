@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { GraduationCap, Code2, Award, Heart, Briefcase } from "lucide-react";
+import MorphingBlobsBackground from "@/components/backgrounds/MorphingBlobsBackground";
 
 export default function Profile() {
   const containerVariants = {
@@ -21,6 +22,7 @@ export default function Profile() {
 
   return (
     <div className="section container">
+      <MorphingBlobsBackground />
       <motion.div variants={containerVariants} initial="hidden" animate="visible" style={{ marginTop: "60px" }}>
         
         <motion.div variants={itemVariants} style={{ marginBottom: "60px", textAlign: "center" }}>
