@@ -1,0 +1,43 @@
+.storeBtn {
+  display: flex;
+  align-items: center;
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  min-width: 160px;
+  gap: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.storeBtn:hover {
+  background: #111;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.smallText {
+  font-size: 0.65rem;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.bigText {
+  font-size: 1rem;
+  font-weight: 700;
+}
